@@ -1,0 +1,19 @@
+{
+    "integrationFolder": "./tests/cypress/specs" ,
+    "pluginsFile": "./tests/cypress/plugins",
+    "fixturesFolder": "./tests/cypress/fixtures",
+    "supportFile": false,
+    "screenshotsFolder": "./tests/cypress/screenshots",
+    "videosFolder": "./tests/cypress/videos",
+    "downloadsFolder": "./tests/cypress/downloads",
+    "baseUrl": "http://localhost:3000",
+    "chromeWebSecurity": false,
+    "responseTimeout": 50000,
+    "retries": {
+      "runMode": 2,
+      "openMode": 0
+    },
+    "viewportWidth": 1200,
+    "viewportHeight": 660
+  }
+  

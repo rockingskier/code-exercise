@@ -1,0 +1,39 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# linting
+.eslintcache
+
+# production
+/build
+/dist
+/src/frontend/.next
+
+# secrets
+*.pem
+
+# cypress artifacts
+/tests/cypress/screenshots
+/tests/cypress/videos
+/tests/cypress/results
+/tests/cypress/downloads
+/tests/cypress/request-cache
+/cypress/downloads
+
+# jest test results
+/tests/jest/results
+
+# misc
+.DS_Store
+.DS_Store?
+.env
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+npm-debug.log*
+
