@@ -1,8 +1,8 @@
-# Purple Dot Coding Exercise
+# Purple Dot Code Exercise
 
 We provide this template to save you time on setting up some basics. You are welcome to change anything you like in this exercise template.
 
-For your convenience this template is set up with Next.js & a PostgreSQL database. You don't have to use these, you can use any tools you like but the stack should be React or Vue backed by a relational database such.
+For your convenience this template is set up with Next.js & a SQLite database. You don't have to use these, you can use any tools you like but the stack should be React or Vue backed by a relational database.
 
 ## Getting Started
 
@@ -22,7 +22,6 @@ There are 3 options you can choose from:
 1. Create a new Codespace in this repository.
 1. Run `npm install` in the terminal.
 1. Run `npm run dev` to start the Next.js dev server.
-
 
 #### Local Devcontainer
 
