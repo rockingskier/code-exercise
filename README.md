@@ -1,46 +1,49 @@
-## Purple Dot Exercise
+# Purple Dot Coding Exercise
 
 We provide this template to save you time on setting up some basics. You are welcome to change anything you like in this exercise template.
 
-For your convinence this template is set up with Next.js/React/PostgreSQL database. You don't have to use these, you can use any tools you like but the stack should be React or Vue backed by a SQL/relational database. 
+For your convenience this template is set up with Next.js & a PostgreSQL database. You don't have to use these, you can use any tools you like but the stack should be React or Vue backed by a relational database such.
 
-The exercise brief will be provided at the start of your code exercise interview.
+## Getting Started
+
+Please do this ahead of time for your interview.
 
 ### Setting Up
 
-Complete these steps before your interview.
+There are 3 options you can choose from:
 
-On macOS:
+1. Use [GitHub Codespaces](https://github.com/features/codespaces).
+1. Use a local [Devcontainer]((https://code.visualstudio.com/docs/devcontainers/containers)).
+1. Run everything locally.
 
-1. Install [Docker](https://docs.docker.com/desktop/mac/install/)
-2. Install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) (node version manager)
-3. Install node: `nvm install 16.13.1` `nvm use 16.13.1`
-4. Install the right version of npm: `npm install -g npm@8.1.2`
-5. Install all dependencies: `npm install`
+#### Codespaces
 
-### Running
+1. Click the green `<> Code` button at the top of the page.
+1. Create a new Codespace in this repository.
+1. Run `npm install` in the terminal.
+1. Run `npm run dev` to start the Next.js dev server.
 
-- `npm run dev:db` to start the Postgres docker container
-  - You can log in to the container using `psql -h 127.0.0.1 --user postgres`, password is set to `secret`
-  - `npm run db:migrate` to migrate the database to the latest revision
-  - `npm run db:rollback` to rollback the latest DB migration
-- `npm run dev` to start up the dev server
 
-### Testing
+#### Local Devcontainer
 
-#### Linting
+1. Check this respository out locally.
+1. Open the folder in VSCode.
+1. When prompted, choose to open the Devcontainer. It will automatically build and open it.
+1. Run `npm install` in the terminal.
+1. Run `npm run dev` to start the Next.js dev server.
 
-- `npm run lint:fix` to account for all linting steps
+#### Local Setup
 
-#### Jest tests
+1. Install [Docker](https://www.docker.com/get-started/)
+1. Install Node.js 20. If you're using OS X or Linux we recommend using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Run `npm install` in the terminal.
+1. Run `npm run dev` to start the Next.js dev server.
 
-- `npm run test` to run all Jest-based tests
-- `npx jest --watch --runInBand some/file/path.test.js` to run a specific Jest test file
+### Commands
 
-#### Cypress tests
-
-These use the Chrome browser.
-If you choose to add these, name them *.spec.js in tests/cypress and then you can
-- `npm run dev` to run up the server
-- `npm run cy:open` to open Cypress and use the UI to run specific files
-- `npm run cy:run` to have Cypress run all the available tests
+- `npm run dev` to start the Next.js development server
+- `npm run lint` to account for all linting steps
+- `npm run test` to run all any unit tests.
+- `npx prisma migrate deploy` to run migrations against the database.
+- `npx prisma migrate dev` to create new migrations.
+- `npx prisma generate` to regenerate the Prisma bindings.

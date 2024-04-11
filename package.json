@@ -1,65 +1,38 @@
 {
     "name": "purple-dot-exercise",
     "engines": {
-        "node": "16.13.1",
-        "npm": "^8.1.2"
+        "node": "v20.12.2",
+        "npm": "10.5.0"
     },
     "scripts": {
-        "dev": "run-s dev:app",
-        "dev:app": "next dev src/frontend",
-        "dev:db": "docker run -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:14.1",
-        "db:migrate:new": "npx knex migrate:make --knexfile src/backend/repository/knexfile.js",
-        "db:migrate": "npx knex migrate:latest --knexfile src/backend/repository/knexfile.js",
-        "db:rollback": "npx knex migrate:rollback --knexfile src/backend/repository/knexfile.js",
-        "db:make": "func() { npx knex migrate:make \"$1\" --knexfile src/backend/repository/knexfile.js; }; func",
-        "build": "next build src/frontend",
-        "start": "next start src/frontend",
-        "lint": "npx eslint --ext .js --ext .jsx . --cache",
-        "lint:fix": "npm run lint -- --fix",
-        "test": "run-s test:unit",
-        "test:unit": "jest . --runInBand",
-        "cy:run": "cypress run --browser chrome",
-        "cy:open": "cypress open"
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "test": "vitest",
+        "cypress:run": "cypress run --browser chrome",
+        "cypress:open": "cypress open"
     },
     "dependencies": {
-        "knex": "0.95.14",
-        "knex-cleaner": "^1.3.1",
-        "next": "^12.0.7",
-        "pg": "^8.7.1",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react": "^18",
+        "react-dom": "^18",
+        "next": "^14.1.4",
+        "@prisma/client": "^5.12.1"
     },
     "devDependencies": {
-        "@testing-library/jest-dom": "^5.16.0",
-        "cypress": "9.2.0",
-        "eslint": "^8.3.0",
-        "eslint-config-airbnb": "^19.0.2",
-        "eslint-plugin-cypress": "^2.12.1",
-        "jest": "^27.4.3",
-        "jest-cli": "^27.4.3",
-        "jest-fetch-mock": "^3.0.3",
-        "jest-junit": "^13.0.0",
-        "jest-styled-components": "^7.0.0",
-        "nodemon": "^2.0.15",
-        "npm-run-all": "^4.1.5"
-    },
-    "jest": {
-        "testPathIgnorePatterns": [
-            "spec.js"
-        ],
-        "setupFilesAfterEnv": [
-            "./tests/jest/jest-setup.js"
-        ],
-        "globalTeardown": "./tests/jest/jest-teardown.js",
-        "reporters": [
-            "default",
-            [
-                "jest-junit",
-                {
-                    "outputDirectory": "./tests/jest/results",
-                    "uniqueOutputName": "true"
-                }
-            ]
-        ]
+        "@testing-library/react": "^15.0.0",
+        "@types/node": "^20",
+        "@types/react-dom": "^18",
+        "@types/react": "^18",
+        "@vitejs/plugin-react": "^4.2.1",
+        "autoprefixer": "^10.0.1",
+        "eslint-config-next": "14.1.4",
+        "eslint": "^8",
+        "jsdom": "^24.0.0",
+        "prisma": "^5.12.1",
+        "postcss": "^8",
+        "tailwindcss": "^3.3.0",
+        "typescript": "^5",
+        "vitest": "^1.4.0"
     }
 }
