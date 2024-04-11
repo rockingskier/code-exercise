@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "derp",
+            "database": "${workspaceFolder:code-exercise}/prisma/dev.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

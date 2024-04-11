@@ -1,0 +1,12 @@
+{
+  "name": "devcontainer",
+  "dockerComposeFile": [
+    "docker-compose.yml"
+  ],
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "mounts": [
+    "source=node_modules,target=/workspaces/node_modules,type=volume"
+  ],
+  "postCreateCommand": "apt -qq --allow-releaseinfo-change update && apt -qq install -y git"
+}

@@ -1,19 +1,19 @@
-## Purple Dot Exercise
+# Purple Dot Coding Exercise
 
 We provide this template to save you time on setting up some basics. You are welcome to change anything you like in this exercise template.
 
-For your convinence this template is set up with Next.js/React/PostgreSQL database. You don't have to use these, you can use any tools you like but the stack should be React or Vue backed by a SQL/relational database. 
+For your convenience this template is set up with Next.js & a PostgreSQL database. You don't have to use these, you can use any tools you like but the stack should be React or Vue backed by a relational database such.
 
-The exercise brief will be provided at the start of your code exercise interview.
+## Getting Started
+
+Please do this ahead of time for your interview.
 
 ### Setting Up
 
-Complete these steps before your interview.
+You can choose to either use GitHub Codespaces or your local machine as your development environment. 
 
-On macOS:
-
-1. Install [Docker](https://docs.docker.com/desktop/mac/install/)
-2. Install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) (node version manager)
+1. Install [Docker](https://www.docker.com/get-started/)
+2. Install Node.js. If you're using OS X or Linux we recommend using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 3. Install node: `nvm install 16.13.1` `nvm use 16.13.1`
 4. Install the right version of npm: `npm install -g npm@8.1.2`
 5. Install all dependencies: `npm install`
