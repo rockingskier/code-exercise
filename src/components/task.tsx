@@ -1,6 +1,14 @@
 import { Task } from "@prisma/client";
 
-export const TaskItem = ({ task, toggleStatus }: { task: Task, toggleStatus: (task: Task) => Promise<void> }) => {
+export const TaskItem = ({
+    deleteTask,
+    task,
+    toggleStatus
+}: {
+    deleteTask: (task: Task) => Promise<void>,
+    task: Task,
+    toggleStatus: (task: Task) => Promise<void>,
+}) => {
     const statusId = `completed-${task.id}`;
 
     return <>
@@ -15,6 +23,10 @@ export const TaskItem = ({ task, toggleStatus }: { task: Task, toggleStatus: (ta
                 onChange={() => toggleStatus(task)}
             />
         </form>
+        <button type="button" onClick={(event) => {
+            event.preventDefault();
+            deleteTask(task);
+        }}>Delete</button>
 
     </>
 }

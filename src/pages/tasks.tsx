@@ -1,7 +1,7 @@
 
 import { Task } from '@prisma/client';
 import { prisma } from '../prisma';
-import { FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { NoTasks } from '@/components/no-tasks';
 import { TaskList } from '@/components/task-list';
 import { NewTaskForm } from '@/components/new-task-form';
@@ -14,14 +14,14 @@ export async function getServerSideProps() {
     }
 }
 
+type Filter = 'all' | 'active' | 'complete'
+
 export default function Tasks({ tasks: initialTasks }: { tasks: Task[] }) {
-    const [filter, setFilter] = useState<'all' | 'active' | 'complete'>('all');
+    const [filter, setFilter] = useState<Filter>('all');
 
     const [tasks, setTasks] = useState<Task[]>(initialTasks);
 
-    const filteredTasks = filter === 'all' ? tasks : tasks.filter((task) => {
-        // TODO: Filter things
-    })
+    const filteredTasks = filter === 'all' ? tasks : tasks.filter((task) => filter === 'complete' ? task.completed : !task.completed)
 
     // TODO: Move to the form itself.  Convert to a hook?
     async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -58,7 +58,6 @@ export default function Tasks({ tasks: initialTasks }: { tasks: Task[] }) {
             }
         }));
 
-
         await fetch(`/api/task/${task.id}`, {
             method: 'PUT',
             body: JSON.stringify({
@@ -72,11 +71,35 @@ export default function Tasks({ tasks: initialTasks }: { tasks: Task[] }) {
         // TODO: Error handling - revert the UI etc
     }
 
+    // TODO: Move this
+    // * I don't like the prop drilling (among other things)
+    async function onDelete(task: Task) {
+        // Pro-actively update the client status on the assumption that it will succeed
+        setTasks((currentTasks) => currentTasks.filter((existingTask) => existingTask.id !== task.id));
+
+        await fetch(`/api/task/${task.id}`, {
+            method: 'DELETE',
+        });
+
+        // TODO: Error handling - revert the UI etc
+    }
+
+    function onFilterChange(event: ChangeEvent<HTMLSelectElement>) { setFilter(event.target.value as Filter) };
+
     return (
         <>
             <h2>Your Tasks</h2>
+            <select name="filters" id="filters" onChange={onFilterChange}>
+                <option value="all">All</option>
+                <option value="active">Active</option>
+                <option value="complete">Complete</option>
+            </select>
             {tasks.length ?
-                <TaskList tasks={tasks} toggleStatus={toggleStatus} /> :
+                <TaskList
+                    deleteTask={onDelete}
+                    tasks={filteredTasks}
+                    toggleStatus={toggleStatus}
+                /> :
                 <NoTasks />}
             <NewTaskForm onSubmit={onSubmit} />
         </>
