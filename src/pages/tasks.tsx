@@ -6,6 +6,8 @@ import { NoTasks } from '@/components/no-tasks';
 import { TaskList } from '@/components/task-list';
 import { NewTaskForm } from '@/components/new-task-form';
 
+import styles from './tasks.module.css';
+
 export async function getServerSideProps() {
     const tasks = await prisma.task.findMany()
 
@@ -87,7 +89,7 @@ export default function Tasks({ tasks: initialTasks }: { tasks: Task[] }) {
     function onFilterChange(event: ChangeEvent<HTMLSelectElement>) { setFilter(event.target.value as Filter) };
 
     return (
-        <>
+        <div className={styles.container}>
             <h2>Your Tasks</h2>
             <select name="filters" id="filters" onChange={onFilterChange}>
                 <option value="all">All</option>
@@ -102,6 +104,6 @@ export default function Tasks({ tasks: initialTasks }: { tasks: Task[] }) {
                 /> :
                 <NoTasks />}
             <NewTaskForm onSubmit={onSubmit} />
-        </>
+        </div>
     );
 }

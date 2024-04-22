@@ -1,5 +1,7 @@
 import { Task } from "@prisma/client";
 
+import styles from './task.module.css';
+
 export const TaskItem = ({
     deleteTask,
     task,
@@ -11,8 +13,8 @@ export const TaskItem = ({
 }) => {
     const statusId = `completed-${task.id}`;
 
-    return <>
-        {task.body} -
+    return <div className={styles.task}>
+        <div className={styles.body}>{task.body}</div>
         <form>
             <label htmlFor={statusId}>Status</label>
             <input
@@ -28,5 +30,5 @@ export const TaskItem = ({
             deleteTask(task);
         }}>Delete</button>
 
-    </>
+    </div>
 }

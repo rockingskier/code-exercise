@@ -1,6 +1,8 @@
 import { Task } from "@prisma/client";
 import { TaskItem } from "./task";
 
+import styles from './task-list.module.css';
+
 export const TaskList = ({
     deleteTask,
     tasks,
