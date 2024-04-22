@@ -96,13 +96,15 @@ export default function Tasks({ tasks: initialTasks }: { tasks: Task[] }) {
                 <option value="active">Active</option>
                 <option value="complete">Complete</option>
             </select>
-            {tasks.length ?
-                <TaskList
-                    deleteTask={onDelete}
-                    tasks={filteredTasks}
-                    toggleStatus={toggleStatus}
-                /> :
-                <NoTasks />}
+            {
+                filteredTasks.length ?
+                    <TaskList
+                        deleteTask={onDelete}
+                        tasks={filteredTasks}
+                        toggleStatus={toggleStatus}
+                    /> :
+                    <NoTasks />
+            }
             <NewTaskForm onSubmit={onSubmit} />
         </div>
     );
